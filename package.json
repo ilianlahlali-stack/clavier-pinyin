@@ -1,0 +1,86 @@
+{
+  "name": "floating-pinyin-keyboard",
+  "version": "1.0.0",
+  "description": "Clavier pinyin flottant, transparent, toujours au premier plan",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --publish never",
+    "release": "electron-builder --publish always"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.15.3"
+  },
+  "productName": "Clavier Pinyin",
+  "author": "Ilian Lahlali",
+  "build": {
+    "appId": "com.ilian.clavierpinyin",
+    "productName": "Clavier Pinyin",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "build/icon.png"
+    ],
+    "afterPack": "build/adhoc-sign.js",
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "category": "public.app-category.education",
+      "identity": null,
+      "extendInfo": {
+        "LSUIElement": true
+      },
+      "artifactName": "Clavier-Pinyin-Mac.dmg"
+    },
+    "dmg": {
+      "title": "Clavier Pinyin"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "artifactName": "Clavier-Pinyin-Windows.exe"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "shortcutName": "Clavier Pinyin"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "build/icon.png",
+      "category": "Education",
+      "artifactName": "Clavier-Pinyin-Linux.AppImage"
+    },
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilianlahlali-stack/clavier-pinyin.git"
+  }
+}
