@@ -1,71 +1,75 @@
 # 拼 Clavier Pinyin
 
-Un petit clavier flottant pour taper les tons du pinyin (ā á ǎ à, ē é ě è, … ǖ ǘ ǚ ǜ).
-Il reste toujours au premier plan : tu écris normalement avec ton clavier, et tu cliques
-sur la lettre accentuée quand tu en as besoin — elle s'insère directement dans ton texte.
+🇫🇷 [Version française](README.fr.md)
 
-## ⬇️ Télécharger
+A tiny floating keyboard for typing pinyin tone marks (ā á ǎ à, ē é ě è, … ǖ ǘ ǚ ǜ).
+It always stays on top: keep typing normally with your keyboard, and click the accented
+letter whenever you need it — it goes straight into your text. No more copy/pasting.
 
-| Système | Lien |
+## ⬇️ Download
+
+| System | Link |
 |---|---|
-| 🍎 **Mac** (Intel et Apple Silicon) | [Clavier-Pinyin-Mac.dmg](https://github.com/ilianlahlali-stack/clavier-pinyin/releases/latest/download/Clavier-Pinyin-Mac.dmg) |
+| 🍎 **Mac** (Intel and Apple Silicon) | [Clavier-Pinyin-Mac.dmg](https://github.com/ilianlahlali-stack/clavier-pinyin/releases/latest/download/Clavier-Pinyin-Mac.dmg) |
 | 🪟 **Windows** 10 / 11 | [Clavier-Pinyin-Windows.exe](https://github.com/ilianlahlali-stack/clavier-pinyin/releases/latest/download/Clavier-Pinyin-Windows.exe) |
 | 🐧 **Linux** | [Clavier-Pinyin-Linux.AppImage](https://github.com/ilianlahlali-stack/clavier-pinyin/releases/latest/download/Clavier-Pinyin-Linux.AppImage) |
 
-## 🍎 Installation sur Mac
+💻 Computers only — it doesn't work on phones or tablets.
 
-1. Ouvre le fichier `.dmg` et glisse **Clavier Pinyin** dans le dossier **Applications**.
-2. Lance l'app. macOS va la bloquer (« impossible de vérifier le développeur ») — c'est normal,
-   l'app n'est pas payée chez Apple. Va dans **Réglages Système → Confidentialité et sécurité**,
-   descends en bas et clique **Ouvrir quand même**.
-3. Autorise l'app dans **Réglages Système → Confidentialité et sécurité → Accessibilité**
-   (sinon cliquer sur les lettres ne fait rien), puis relance l'app.
+## 🍎 Installing on Mac
 
-### 🔴 Le clavier affiche un bandeau rouge / rien ne s'écrit ?
+1. Open the `.dmg` file and drag **Clavier Pinyin** into the **Applications** folder.
+2. Launch the app. macOS will block it ("Apple could not verify…") — that's normal,
+   the app just isn't paid for with Apple. Click **Done** (not "Move to Trash"), then go to
+   **System Settings → Privacy & Security**, scroll down and click **Open Anyway**.
+3. Allow the app in **System Settings → Privacy & Security → Accessibility**
+   (otherwise clicking the letters does nothing), then relaunch the app.
 
-L'app a besoin de l'autorisation **Accessibilité** pour pouvoir « taper » à ta place.
-Si un bandeau rouge apparaît en bas du clavier, clique dessus : il ouvre directement le bon réglage.
+### 🔴 Red banner on the keyboard / nothing gets typed?
 
-⚠️ Si « Clavier Pinyin » est **déjà dans la liste et activé** mais que ça ne marche pas
-(typiquement après une mise à jour) : macOS se souvient de l'**ancienne** version.
-Activer/désactiver l'interrupteur ne suffit pas, il faut :
+The app needs the **Accessibility** permission to "type" for you.
+If a red banner shows up at the bottom of the keyboard, click it: it opens the right setting.
 
-1. Sélectionner la ligne **Clavier Pinyin** et cliquer sur **−** pour la supprimer.
-2. Cliquer sur **+** → **Applications** → **Clavier Pinyin**, et vérifier que l'interrupteur est activé.
-3. Quitter le clavier (bouton **×**) et le relancer.
+⚠️ If "Clavier Pinyin" is **already in the list and switched on** but it still doesn't work
+(usually after an update): macOS remembers the **old** version.
+Toggling the switch isn't enough, you need to:
 
-## 🪟 Installation sur Windows
+1. Select the **Clavier Pinyin** row and click **−** to remove it.
+2. Click **+** → **Applications** → **Clavier Pinyin**, and make sure the switch is on.
+3. Quit the keyboard (**×** button) and relaunch it.
 
-1. Lance `Clavier-Pinyin-Windows.exe`.
-2. Si Windows affiche « Windows a protégé votre ordinateur », clique **Informations complémentaires**
-   puis **Exécuter quand même**.
-3. L'app s'installe et s'ouvre toute seule. Un raccourci est créé sur le bureau.
+## 🪟 Installing on Windows
+
+1. Run `Clavier-Pinyin-Windows.exe`.
+2. If Windows says "Windows protected your PC", click **More info**
+   then **Run anyway**.
+3. The app installs and opens by itself. A desktop shortcut is created.
 
 ## 🐧 Linux
 
-Rends le fichier exécutable (`chmod +x Clavier-Pinyin-Linux.AppImage`) puis lance-le.
-Nécessite `xdotool` (`sudo apt install xdotool`) et une session X11.
+Make the file executable (`chmod +x Clavier-Pinyin-Linux.AppImage`) and run it.
+Requires `xdotool` (`sudo apt install xdotool`) and an X11 session.
 
-## Utilisation
+## How to use
 
-- **Déplacer** : attrape la barre du haut (拼音).
-- **Taille** : boutons **−** / **+**.
-- **Majuscules** : bouton **⇧** (Ā Á Ǎ À…).
-- **Quitter** : bouton **×**.
+- **Move**: grab the top bar (拼音).
+- **Size**: **−** / **+** buttons.
+- **Capitals**: **⇧** button (Ā Á Ǎ À…).
+- **Quit**: **×** button.
 
-Les caractères insérés sont les vrais caractères Unicode du pinyin : ils sont reconnus
-par les exercices en ligne, Word, Google Docs, etc.
+The inserted characters are the real Unicode pinyin characters: they're accepted
+by online exercises, Word, Google Docs, etc.
 
 ---
 
-### Pour les développeurs
+### For developers
 
 ```bash
 npm install
-npm start          # lancer en mode dev
-npm run dist       # construire l'installeur pour ton système
+npm start          # run in dev mode
+npm run dist       # build the installer for your system
 ```
 
-Publier une nouvelle version : changer `version` dans `package.json`, puis
-`git tag v1.0.1 && git push --tags` — GitHub Actions compile Mac, Windows et Linux
-et met à jour les liens de téléchargement ci-dessus.
+To publish a new version: bump `version` in `package.json`, then
+`git tag v1.0.2 && git push --tags` — GitHub Actions builds Mac, Windows and Linux
+and updates the download links above.
