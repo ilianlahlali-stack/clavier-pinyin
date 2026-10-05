@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, clipboard, systemPreferences } = require('electron');
+const { app, BrowserWindow, ipcMain, clipboard, systemPreferences, shell } = require('electron');
 const { execFile, spawn } = require('child_process');
 const path = require('path');
 const fs = require('fs');
@@ -70,9 +70,15 @@ function getWinPaster() {
   return psPaster;
 }
 
+// macOS : ⌘V envoyé directement via CoreGraphics (pas d'AppleScript « System Events »,
+// qui exigerait en plus l'autorisation « Automatisation »). Seule l'Accessibilité est requise.
+const MAC_PASTE = 'ObjC.import("CoreGraphics");' +
+  'function key(down) { const e = $.CGEventCreateKeyboardEvent(null, 9, down); $.CGEventSetFlags(e, 0x100000); $.CGEventPost(0, e); }' +
+  'key(true); key(false);';
+
 function sendPaste(done) {
   if (isMac) {
-    execFile('osascript', ['-e', 'tell application "System Events" to keystroke "v" using command down'], done);
+    execFile('osascript', ['-l', 'JavaScript', '-e', MAC_PASTE], done);
   } else if (isWin) {
     getWinPaster().stdin.write('\n');
     setTimeout(done, 150);
@@ -99,6 +105,10 @@ ipcMain.on('resize-by', (_e, factor) => {
 });
 
 ipcMain.on('quit', () => app.quit());
+
+ipcMain.handle('ax-status', () => !isMac || systemPreferences.isTrustedAccessibilityClient(false));
+ipcMain.on('open-ax-settings', () =>
+  shell.openExternal('x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility'));
 
 app.whenReady().then(() => {
   if (isMac) {

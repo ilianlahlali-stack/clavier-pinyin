@@ -21,6 +21,19 @@ sur la lettre accentuée quand tu en as besoin — elle s'insère directement da
 3. Autorise l'app dans **Réglages Système → Confidentialité et sécurité → Accessibilité**
    (sinon cliquer sur les lettres ne fait rien), puis relance l'app.
 
+### 🔴 Le clavier affiche un bandeau rouge / rien ne s'écrit ?
+
+L'app a besoin de l'autorisation **Accessibilité** pour pouvoir « taper » à ta place.
+Si un bandeau rouge apparaît en bas du clavier, clique dessus : il ouvre directement le bon réglage.
+
+⚠️ Si « Clavier Pinyin » est **déjà dans la liste et activé** mais que ça ne marche pas
+(typiquement après une mise à jour) : macOS se souvient de l'**ancienne** version.
+Activer/désactiver l'interrupteur ne suffit pas, il faut :
+
+1. Sélectionner la ligne **Clavier Pinyin** et cliquer sur **−** pour la supprimer.
+2. Cliquer sur **+** → **Applications** → **Clavier Pinyin**, et vérifier que l'interrupteur est activé.
+3. Quitter le clavier (bouton **×**) et le relancer.
+
 ## 🪟 Installation sur Windows
 
 1. Lance `Clavier-Pinyin-Windows.exe`.

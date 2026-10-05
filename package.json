@@ -1,6 +1,6 @@
 {
   "name": "floating-pinyin-keyboard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Clavier pinyin flottant, transparent, toujours au premier plan",
   "main": "main.js",
   "scripts": {
